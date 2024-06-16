@@ -24,11 +24,11 @@ export default function Navbar() {
                         <button
                             id="dropdownDefaultButton"
                             data-dropdown-toggle="dropdown"
-                            className="text-white lg:mx-4 bg-orange-500 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            className="text-white lg:mx-4 bg-orange-500 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                             type="button"
                             onClick={() => setShowDropdown(!showDropdown)}
                         >
-                            Welcome, {user.username}
+                            {user.username}
                             <svg
                                 className="w-2.5 h-2.5 ms-3"
                                 aria-hidden="true"
@@ -51,7 +51,7 @@ export default function Navbar() {
                             onMouseLeave={() => setTimeout(() => setShowDropdown(false), 300)}
                             className={`${
                                 showDropdown ? "" : "hidden"
-                            } z-10 absolute left-[10%] bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700`}
+                            } z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow lg:w-44 w-36 dark:bg-gray-700`}
                         >
                             <ul
                                 className="py-2 text-sm text-gray-700 dark:text-gray-200"

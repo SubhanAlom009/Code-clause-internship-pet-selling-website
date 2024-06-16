@@ -79,7 +79,7 @@ const PetBuy = ({ params }: { params: { pet: string }}) => {
   return (
     <>
     <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
-    <div className='flex min-h-screen flex-col items-center justify-between lg:p-10 p-4 w-full bg-gradient-to-r from-red-500 to-orange-500 text-white'>
+    <div className='flex min-h-screen flex-col items-center justify-between lg:p-10 p-3 w-full bg-gradient-to-r from-red-500 to-orange-500 text-white'>
       
       <div className='flex flex-col lg:flex-row justify-between bg-black w-full min-h-[70vh] rounded-xl lg:p-16 p-4 border-orange-500 border-4'>
         <div className='lg:w-1/2 flex items-center'>
@@ -102,9 +102,20 @@ const PetBuy = ({ params }: { params: { pet: string }}) => {
 
           <div className='lg:text-2xl text-xl font-bold mt-8 flex lg:gap-20 gap-5'>
             <p className='bg-orange-500 px-4 py-3 rounded-xl'>₹{pet.price}</p>
-            <button
+            {
+              pet.soldOut ? (
+                <button
+                className='bg-gray-500 text-orange-500 px-4 py-3 rounded-xl cursor-not-allowed'>
+                Sold Out
+              </button>
+              ) : (
+                <button
             onClick={() => pay(pet.price * 100)}
-            className='bg-white text-orange-500 px-4 py-3 rounded-xl hover:bg-orange-500 hover:text-black'>Buy Now</button>
+            className='bg-white text-orange-500 px-4 py-3 rounded-xl hover:bg-orange-500 hover:text-black'>
+              Buy Now
+            </button>
+              )
+            }
           </div>
           <p className='text-sm text-orange-500'>*Payment secured with Razorpay</p>
         </div>
